@@ -6,11 +6,14 @@ class Player
         puts "数字を入力してください。"
         puts "0:グー, 1:チョキ, 2:パー"
         input_hand = gets
-         if input_hand =~ /^[0-2]+$/
+        if input_hand =~ /^[0-2]+$/
             return input_hand.to_i
-         else 
-             return get_input_hand
-         end
+        elsif input_hand =~ /^[3-9]+$/
+            puts "対応されていない数字です。"
+            return get_input_hand
+        else
+            return get_input_hand
+        end
     end
 
     def hand
@@ -54,4 +57,3 @@ next_game = true
 while next_game do
     next_game = janken.pon(player.hand, enemy.hand)
 end
-print("aaa")
